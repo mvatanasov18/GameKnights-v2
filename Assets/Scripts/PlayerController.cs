@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        PlayerHealth = 0.6f;
-        maxHealth = 0.6f;
+        PlayerHealth = 0.06f;
+        maxHealth = 0.06f;
         rb = GetComponent<Rigidbody2D>();
     }
     void Update()
@@ -30,9 +30,9 @@ public class PlayerController : MonoBehaviour
         if(timer>=delayAmount)
         {
             timer = 0f;
-            PlayerHealth = Mathf.Clamp(PlayerHealth,0,maxHealth);
+            PlayerHealth = Mathf.Clamp(PlayerHealth,0.0f,maxHealth);
 
-            if(PlayerHealth<maxHealth && PlayerHealth>0)
+            if(PlayerHealth<maxHealth && PlayerHealth > 0)
             {
                 PlayerHealth += 0.00005f;
             }
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(PlayerHealth<=0)
+        if(PlayerHealth<=0.0f)
         {
             Destroy(gameObject);
         }
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Skelly"))
         {
-            PlayerHealth -= 0.2f;
+            PlayerHealth -= 0.03f;
             HealthBar.sortingOrder = 100;
         }
     }

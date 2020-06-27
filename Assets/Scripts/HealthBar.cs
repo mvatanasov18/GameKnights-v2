@@ -11,6 +11,7 @@ public class HealthBar : MonoBehaviour
 
     void Start()
     {
+
         localScale = transform.localScale;
         sprite = GetComponent<SpriteRenderer>();
     }
